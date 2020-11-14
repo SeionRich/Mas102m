@@ -1,0 +1,132 @@
+# Other Comments
+
+```{r length data, message = FALSE, include = FALSE}
+# Length data
+
+LengthImport <- read_csv("observer_lengths_mas102m.csv")
+
+LengthData <- inner_join(ObserverData,
+                         LengthImport,
+                         by = c("TripID", "DragID2", "LatinNames"))
+```
+
+
+## Species CPUE
+
+```{r, fig.height = 4.5}
+
+# Creating species CPUE table with top 10 species
+Top10Species <- ObserverData %>% 
+  group_by(LatinNames) %>% 
+  dplyr::summarise(NoSampled = n(),
+                   TopCpue = round(mean(CpueKGHR),3),
+                   .groups = 'drop') %>%
+  filter(NoSampled >= 10) %>% 
+  arrange(desc(TopCpue)) %>%
+  head(10)
+
+# Printing table 
+Top10Species %>% 
+  kbl() %>%
+  kable_classic() %>% 
+  row_spec(0, bold = TRUE) %>% 
+  kable_styling(fixed_thead = T,
+                bootstrap_options = "condensed")
+
+# Creating a vector of names
+Top10names <- Top10Species$LatinNames
+
+# Filtering data to keep species
+FilteredSpecies <- ObserverData %>% 
+  filter(LatinNames %in% Top10names)
+
+# Plotting species 
+ggplot(data = FilteredSpecies,
+       aes(x = reorder(LatinNames,
+                       CpueKGHR,
+                       FUN = median), 
+           y = CpueKGHR,
+           fill = LatinNames)) + 
+  geom_boxplot() +
+  scale_fill_brewer(palette = "Set3") +
+  theme_bw() +
+  theme(panel.background = element_rect(fill = "white",
+                                        colour = "grey50"),
+        legend.position = "none") +
+  labs(x = "Species",
+       y = "CPUE (kgs/hr)",
+       title = "Boxplot of most common species by CPUE") +
+  coord_flip()
+```
+
+## Species Length Table
+
+```{r}
+
+# Creating species length table 
+SpeciesLengths <- LengthData %>% 
+  group_by(LatinNames) %>% 
+  dplyr::summarise(NoMeasured = n(),
+                   MeanLength = round(mean(Lengths)),
+                   MedianLength = round(median(Lengths)),
+                   SDLength = round(sd(Lengths)),
+                   MaxLength = round(max(Lengths)),
+                   MinLength = round(min(Lengths)),
+                   .groups = 'drop') %>%
+  arrange(desc(NoMeasured))
+
+# Printing table 
+SpeciesLengths %>% 
+  kbl() %>%
+  kable_classic() %>% 
+  row_spec(0, bold = TRUE) %>% 
+  kable_styling(fixed_thead = T,
+                bootstrap_options = "condensed")
+
+```
+
+## Visualising Lenght Measurements
+
+```{r, fig.height = 10, fig.width = 8}
+## Creating a long table 
+SpeciesLengths2 <- SpeciesLengths %>%
+  pivot_longer(!LatinNames, 
+               names_to = "Measurements",
+               values_to = "Values") %>% 
+  arrange(Measurements,
+          Values)
+
+## Ordering data by highest value 
+SpeciesLengths3 <- SpeciesLengths2 %>%
+    group_by(Measurements) %>%
+    top_n(10) %>%
+    ungroup %>%
+    mutate(Measurements = as.factor(Measurements),
+           LatinNames = reorder_within(LatinNames,
+                                       Values,
+                                       Measurements))
+
+# Plotting data
+SpeciesLengths3 %>%
+  mutate(Measurements = fct_relevel(Measurements, 
+            "MaxLength", "MinLength", "MeanLength", 
+            "MedianLength", "SDLength", "NoMeasured")) %>% 
+  ggplot(aes(LatinNames,
+             Values,
+             fill = Measurements)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~Measurements,
+             scales = "free",
+             ncol = 2) +
+  theme_bw() +
+  scale_fill_brewer(palette = "Set2") +
+  coord_flip() +
+  scale_x_reordered() +
+  scale_y_continuous(expand = c(0,0)) +
+  labs(y = "Values of summary statistics",
+       x = NULL,
+       title = "Presenation of summary statistics for the species measured",
+       subtitle = "Ordered from highest to lowest")
+
+```
+

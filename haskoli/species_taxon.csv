@@ -1,0 +1,112 @@
+scientific_name,order,family,class,fao_code,species_referecnce
+Achirus achirus,Pleuronectiformes,Achiridae,Actinopterygii,HIK,"Linnaeus, 1758"
+Amphiarius rugispinis,Siluriformes,Ariidae,Actinopterygii,AWR,"Valenciennes, 1840"
+Anchoa mitchilli,Clupeiformes,Engraulidae ,Actinopterygii,ANB,"Valenciennes, 1848"
+Anchoa spinifer,Clupeiformes,Engraulidae ,Actinopterygii,EAH,"Valenciennes, 1848"
+Anchoviella lepidentostole,Clupeiformes ,Engraulidae ,Actinopterygii,EVL,"Fowler, 1911"
+Apionichthys dumerili,Pleuronectiformes,Achiridae,Actinopterygii,IYD,"Kaup, 1858"
+Arius proops,Siluriformes,Ariidae,Actinopterygii,AXP,"Valenciennes, 1840"
+Bagre bagre,Siluriformes,Ariidae,Actinopterygii,BEB,"Linnaeus, 1766"
+Batrachoides surinamensis,Batrachoidiformes,Batrachoididae,Actinopterygii,TFB,"Bloch & Schneider, 1801"
+Rhinoptera bonasus,Myliobatiformes ,Myliobatidae,Elasmobranchii ,MRB,"Mitchill, 1815"
+Selene brownii,Perciformes,Carangidae,Actinopterygii,LNW,"Cuvier, 1816"
+Squilla mantis,Stomatopoda,Squillidae,Malacostraca,MTS,"Linnaeus, 1758"
+Stellifer microps,Perciformes,Sciaenidae,Actinopterygii,EFM,"Steindachner, 1864"
+Stellifer rastrifer,Perciformes,Sciaenidae,Actinopterygii,EFR,"Jordan, 1889"
+Symphurus plagusia,Pleuronectiformes,Cynoglossidae,Actinopterygii,YFS,"Bloch & Schneider, 1801"
+Trichiurus lepturus,Perciformes,Trichiuridae ,Actinopterygii,LHT,"Linnaeus, 1758"
+Urotrygon microphthalmum,Myliobatiformes,Urotrygonidae,Elasmobranchii ,JUM,"Delsman, 1941"
+Xiphopenaeus kroyeri,Decapoda,Penaeidae,Malacostraca,BOB,"Heller, 1862"
+Calappa sulcata,Decapoda,Calappidae,Malacostraca,KPS,"Rathbun, 1898"
+Callinectes ornatus,Decapoda,Portunidae,Malacostraca,KLO,"Ordway, 1863"
+Caranx hippos,Perciformes,Carangidae,Actinopterygii,CVJ,"Linnaeus, 1766"
+Centropomus pectinatus,Perciformes,Centropomidae,Actinopterygii,EPS,"Poey, 1860"
+Centropomus undecimalis,Perciformes,Centropomidae,Actinopterygii,SNO,"Bloch, 1792"
+Chaetodipterus faber,Perciformes,Ephippidae,Actinopterygii,HRF,"Broussonet, 1782"
+Chloroscombrus chrysurus,Perciformes,Carangidae,Actinopterygii,BUA,"Linnaeus, 1766"
+Clibanarius foresti,Decapoda ,Diogenidae ,Malacostraca,NA,"Holthuis, 1959"
+Colomesus psittacus,Tetraodontiformes,Tetraodontidae,Actinopterygii,KOP,"Bloch & Schneider, 1801"
+Conodon nobilis,Perciformes,Haemulidae,Actinopterygii,BRG,"Linnaeus, 1758"
+Corvula sanctaeluciae,Perciformes,Sciaenidae,Actinopterygii,NA,"Jordan, 1890"
+Cynoponticus savanna,Anguilliformes,Muraenesocidae,Actinopterygii,NA,"Bancroft, 1831"
+Cynoscion jamaicensis,Perciformes,Sciaenidae,Actinopterygii,YNJ,"Vaillant & Bocourt, 1883"
+Cynoscion virescens,Perciformes,Sciaenidae,Actinopterygii,YNV,"Cuvier, 1830"
+Dasyatis guttata,Myliobatiformes,Dasyatidae,Elasmobranchii,RDU,"Bloch & Schneider, 1801"
+Dasyatis geijskesi,Myliobatiformes,Dasyatidae,Elasmobranchii,RDJ,"Boeseman, 1948"
+Daysciaena albida,Perciformes,Sciaenidae,Actinopterygii,AYI,"Cuvier, 1830"
+Diodon holocanthus,Tetraodontiformes,Diodontidae ,Actinopterygii,DHO,"Linnaeus, 1758"
+Elops saurus,Elopiformes ,Elopidae ,Actinopterygii,LAD,"Linnaeus, 1766"
+Epinephelus flavolimbatus,Perciformes,Serranidae,Actinopterygii,EEL,"Poey, 1865"
+Genyatremus luteus,Perciformes,Haemulidae,Actinopterygii,GEU,"Bloch, 1790"
+Ginglymostoma cirratum,Orectolobiformes ,Ginglymostomatidae ,Elasmobranchii ,GNC,"Bonnaterre, 1788"
+Gymnothorax ocellatus,Anguilliformes ,Muraenidae ,Actinopterygii,AMW,"Agassiz, 1831"
+Gymnura micrura,Myliobatiformes,Gymnuridae,Elasmobranchii ,RGI,"Bloch & Schneider, 1801"
+Harengula jaguana,Clupeiformes,Clupeidae ,Actinopterygii,HCG,"Poey, 1865"
+Hepatus gronovii,Decapoda,Malacostraca,Malacostraca ,HGV,"Holthuis, 1959"
+Hepatus pudibundus,Decapoda,Aethridae ,Malacostraca ,HUY,"Herbst, 1785"
+Larimus breviceps,Perciformes,Sciaenidae,Actinopterygii,LRJ,"Cuvier, 1830"
+Lobotes surinamensis,Perciformes,Lobotidae,Actinopterygii,LOB,"Bloch, 1790"
+Lolliguncula brevis,Teuthida,Loliginidae,Cephalopoda,IUB,"Blainville, 1823"
+Luidia senegalensis,Paxillosida ,Luidiidae,Asteroidea ,NA,"Lamarck, 1816"
+Macrodon ancylodon,Perciformes,Sciaenidae,Actinopterygii,WKK,"Bloch & Schneider, 1801"
+Menticirrhus americanus,Perciformes,Sciaenidae,Actinopterygii,KGB,"Linnaeus, 1758"
+Micropogonias furnieri,Perciformes,Sciaenidae,Actinopterygii,CKM,"Desmarest, 1823"
+Multiple species finfish,Not applicable,Not applicable,Not applicable,NA,not_applicable
+Multiple species prawns,Not applicable,Not applicable,Not applicable,NA,not_applicable
+Mustelus higmani,Carcharhiniformes ,Triakidae,Elasmobranchii,CTJ,"Springer & Lowe, 1963"
+Narcine brasiliensis,Torpediniformes,Narcinidae,Elasmobranchii,TNA,"Olfers, 1831"
+Nebris microps,Perciformes,Sciaenidae,Actinopterygii,NBM,"Cuvier, 1830"
+Nematopalaemon schmitti,Decapoda,Palaemonidae,Malacostraca ,NLC,"Holthuis, 1950"
+Ogcocephalus darwini,Lophiiformes ,Ogcocephalidae,Actinopterygii ,NA,"Hubbs, 1958"
+Ophichthus gomesii,Anguilliformes,Ophichthidae,Actinopterygii,OOG,"Castelnau, 1855"
+Paulita tuberculata,Decapoda ,Inachoididae ,Malacostraca ,NA,"Lemos de Castro, 1949"
+Paralonchurus brasiliensis,Perciformes,Sciaenidae,Actinopterygii,RLB,"Steindachner, 1875"
+Lonchurus elegans,Perciformes,Sciaenidae,Actinopterygii,RLE,"Boeseman, 1948"
+Pellona harroweri,Clupeiformes,Pristigasteridae,Actinopterygii,NA,"Fowler, 1917"
+Persephona lichtensteinii,Decapoda,Leucosiidae,Malacostraca ,NA,"Leach, 1817"
+Petrochirus diogenes,Decapoda ,Diogenidae,Malacostraca ,NA,"Linnaeus, 1758"
+Polymixia lowei,Polymixiiformes,Polymixiidae,Actinopterygii,NA,"Günther, 1859"
+Porichthys pauciradiatus,Batrachoidiformes,Batrachoididae,Actinopterygii,NA,"Caldwell & Caldwell, 1963"
+Pseudobatos percellens,Rhinopristiformes,Rhinobatidae,Elasmobranchii,NA,"Walbaum, 1792"
+Renilla muelleri,Pennatulacea ,Renillidae ,Anthozoa,NA,"Kölliker, 1872"
+Scomberomorus brasiliensis,Perciformes,Scombridae,Actinopterygii,BRS,"Collette, Russo & Zavala-Camin, 1978"
+Scyphozoa sp.,Unknown,Unknown,Unknown,NA,unknown
+Sphoeroides testudineus,Tetraodontiformes,Tetraodontidae,Actinopterygii,FDT,"Linnaeus, 1758"
+Un id,Unknown,Unknown,Unknown,NA,unknown
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+polydactylus_virginicus,perciformes,polynemidae,,,
+rhinoptera_bonasus,myliobatiformes,myliobatidae,,,
+rypticus_maculatus,perciformes,sciaenidae,,,
+selene_browni,perciformes,carangidae,,,
+selene_vomer,perciformes,carangidae,,,
+species ,order,family,,,
+sphoeroides_parvus,tetraodontiformes,tetraodontidae,,,
+sphorades_testudineus,tetraodontiformes,tetraodontidae,,,
+sphyrindae_spp.,carcharhiniformes,chondrichthyes,,,
+squilla_mantis,stomatopoda,squillidae,,,
+stellifer_microps,perciformes,sciaenidae,,,
+stellifer_rastrifer,perciformes,sciaenidae,,,
+symphurus_plagusia,pleuronectiformes,cynoglossidae,,,
+trichiurus_lepturus,perciformes,trichiuridae,,,
+xiphopenaeus_kroyeri,decapoda,penaeidae,,,
+urotrygon_microphthalmum,myliobatiformes,urotrygonidae,,,
