@@ -45,7 +45,7 @@ All functions and function arguments in this project are followed directly by pa
 
 <center>
 
-![Figure 1 Map of Guyana`s 200 nautical miles Exclusive Economic Zone (EEZ). The Yellow boundary lines represents the different maritime boundary zones. The Atlantic seabob fishing zone (i.e. 15 to 33 meter lines) is represented by the area shaded in red (Richardson, 2020).](C:\Users\UNUFTP\Documents\mas102m\GuyanaEEZ.png){width=65%}
+![Figure 1 Map of Guyana`s 200 nautical miles Exclusive Economic Zone (EEZ). The Yellow boundary lines represents the different maritime boundary zones. The Atlantic seabob fishing zone (i.e. 15 to 33 meter lines) is represented by the area shaded in red (Richardson, 2020).](C:\Users\UNUFTP\Documents\MyGit\Mas102m\GuyanaEEZ.png){width=65%}
 
 </center>
 
@@ -53,7 +53,7 @@ All functions and function arguments in this project are followed directly by pa
 
 <center>
 
-![Figure 2 Data collection sampling protocol used to collect the data for this project](C:\Users\UNUFTP\Documents\mas102m\SamplingProtocol2.png){width=75%}
+![Figure 2 Data collection sampling protocol used to collect the data for this project](C:\Users\UNUFTP\Documents\MyGit\Mas102m\SamplingProtocol2.png){width=75%}
 
 </center>
 
