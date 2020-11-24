@@ -70,13 +70,13 @@ chapter-3
 research-question-5
 length-distributions-of-the-discarded-fish-species.
 subsetting-the-top-6-most-common-fish-species-measured
-assessment-of-fish-species-lengths-across-time-of-day
-box-plots-of-the-length-distributions-for-the-six-6-most-common-by-count-fish-species-discarded-across-time-of-day.
+assessment-of-the-top-6-fish-species-lengths-across-time-of-day
+box-plots-of-the-length-distributions-for-the-six-6-most-common-by-amount-measured-fish-species-discarded-across-time-of-day.
 assessment-of-fish-species-lengths-across-fishing-depths
-box-plot-of-the-length-distribution-for-the-six-6-most-common-by-count-fish-species-discarded-across-fishing-depths.
+box-plot-of-the-length-distribution-for-the-six-6-most-common-by-amount-measured-fish-species-discarded-across-fishing-depths.
 assessment-summary-3
 research-question-6
-discard-length-distribution-for-all-fish-species-across-time-of-day-and-fishing-depths.
+length-distribution-for-all-discarded-fish-species-across-time-of-day-and-fishing-depths.
 time-of-day-2
 fishing-depths-2
 analysis-of-the-mean-lengths-for-discarded-fish-species-across-time-of-day-and-fishing-depths-using-the-welch-two-sample-t-test.

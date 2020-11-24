@@ -500,7 +500,7 @@ Weight.ttest.TP
 #[2]. t.test() is used to analyze the "TotalWeightKG" variable against time of day. 
 ```
 
-The p-value associated with the test is $0.37$, so we cannot reject the null hypothesis ($H_0$) of no difference between the (true) means of the two groups (i.e. time of day; day and night) since the p-value is greater than the usual significance level $alpha = 0.05$. Therefore we conclude based on this data, that there is not enough evidence of a difference between the (true) means of the two groups at the usual significance level of $alpha = 0.05$. 
+The p-value associated with the test is $0.37$, so we fail to reject the null hypothesis ($H_0$) of no difference between the (true) means of the two groups (i.e. time of day; day and night) since the p-value is greater than the usual significance level $alpha = 0.05$. Therefore we conclude based on this data, that there is not enough evidence of a difference between the (true) means of the two groups at the usual significance level of $alpha = 0.05$. 
 
 #### Fishing depths
 
@@ -517,7 +517,7 @@ Weight.ttest.FD
 #     have replaced "TimePeriods". 
 ```
 
-The p-value associated with the test is $0.70$, so we cannot reject the null hypothesis ($H_0$) of no difference between the (true) means of the two groups (i.e. fishing depths; deep and shallow) since the p-value is greater than the usual significance level $alpha = 0.05$. Therefore we conclude based on this data, that there is not enough evidence of a difference between the (true) means of the two groups at the usual significance level of $alpha = 0.05$.
+The p-value associated with the test is $0.70$, so we fail to reject the null hypothesis ($H_0$) of no difference between the (true) means of the two groups (i.e. fishing depths; deep and shallow) since the p-value is greater than the usual significance level $alpha = 0.05$. Therefore we conclude based on this data, that there is not enough evidence of a difference between the (true) means of the two groups at the usual significance level of $alpha = 0.05$.
 
 ### Analysis summary
 

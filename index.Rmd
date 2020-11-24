@@ -325,7 +325,7 @@ To determine the extent of discarding within Guyana`s Atlantic seabob shrimp fis
 3. What are the weight distributions of the most common (by weight) discarded fish species across time of day and fishing depths? 
 4. Are the mean weights for the discarded fish species (ALL) equal across time of day and fishing depths?
 
-**Third Submission (Joining weights and lengths data)**
+**Third Submission (Joining Weights and Lengths data)**
 
 5. What were the length distributions of the most common (by lengths) discarded fish species across time of day and fishing depths?
 6. Are the mean lengths for the discarded fish species (ALL) equal across time of day and fishing depths?
