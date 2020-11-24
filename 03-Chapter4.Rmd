@@ -390,4 +390,5 @@ Chapter 4 was focused on the **Length Analysis** of discarded fish species. To a
 
 For more details; including answers to these questions, please click on links to your left to access the respective Chapters. 
 
-Thanks for reviewing. 
+
+<center>Thanks for reviewing.</center> 
