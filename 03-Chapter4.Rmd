@@ -446,11 +446,11 @@ The p-value associated with the test is $2.695e-12$, therefore we reject the nul
 
 ### Analysis summary
 
-In summary, from the analysis of the discarded species (ALL) across time of day, we found that there is not enough evidence to reject the null hypothesis ($H_0$) of the *means being equal across time of day*. This was proven by the high p-value ($> 0.05$) obtained from the Welch Two Sample t-tests conducted on the discarded species data across time of day. On the other hand, we did found (based on the data) that there is enough evidence to reject the null hypothesis ($H_0$) of the *means being equal across fishing depths*. This was proven by the low p-value ($> 0.05$) obtained from the Welch Two Sample t-tests conducted on the discard species data across fishing depths. 
+In summary, from the analysis of the discarded species (ALL) across time of day, we found that there is not enough evidence to reject the null hypothesis ($H_0$) of the *means being equal across time of day*. This was proven by the high p-value ($> 0.05$) obtained from the Welch Two Sample t-tests conducted on the discarded species data across time of day. On the other hand, we did find (based on the data) that there is enough evidence to reject the null hypothesis ($H_0$) of the *means being equal across fishing depths*. This was proven by the low p-value ($> 0.05$) obtained from the Welch Two Sample t-tests conducted on the discard species data across fishing depths. 
 
 ## Final remarks 
 
-Chapter 4 was focused on the **Length Analysis** of discarded fish species. To achieve this a separate dataset was **Joined** to the original data which was used in this Chapter 3, when the focus was on the **Weight Analysis**. This brings me to end of this project where the following research questions were answered:
+Chapter 4 was focused on a **Length Analysis** of the discarded fish species caught offshore Guyana. To achieve this a separate dataset (*LengthImport*) containing length measurements was **Joined** to the original data (*ObserverData*) used in Chapter 3 which contained the weight measurements for the **Weight Analysis**. This brings me to end of this project where the following research questions were answered:
 
 **First Submission**
 
