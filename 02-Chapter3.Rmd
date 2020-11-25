@@ -95,9 +95,28 @@ ggplot(data = Top.6.fish.data,
   mapping = aes(x = DragID2,
     y = TotalWeightKG)) +
   geom_point(alpha = 0.5) +
+  scale_x_continuous(breaks = seq(from = 1, to = 48)) +
   theme_bw() +
+  theme(axis.text.x = element_text(angle = 90,
+    vjust = 0.5,
+    hjust=1),
+    text = element_text(size = 10),
+    legend.title = element_blank(),
+    legend.position = "bottom") +
   labs(x = "Bottom trawl fishing tows",
-    y = "Weight (kgs)")
+    y = "Weight (kgs)") +
+  ## the code below are used to add the max and min values to plot
+  geom_text(aes(label = ifelse(TotalWeightKG == max(TotalWeightKG),
+    paste0("Max = ",round(TotalWeightKG, 3)), "")), 
+    hjust = -0.5,
+    size = 3,
+    color = "red") + 
+  geom_text(aes(label = ifelse(TotalWeightKG == min(TotalWeightKG),
+    paste0("Min = ", round(TotalWeightKG, 3)), "")),
+    vjust = 1.5,
+    size = 3,
+    color = "red") + 
+  guides(colour = guide_legend(override.aes = aes(label = "")))
 
 ### CODE COMMENTS ###
 #[1]. The vector "Top.6.fish.names" is created using head(). The fish species names were 
@@ -123,6 +142,10 @@ After seeing the top 30 fish species by weight in *Table 3.1* we will now zoom i
 Outliers <- Top.6.fish.data %>% 
   filter(TotalWeightKG > 125) 
 
+# Subsetting data without outliers
+Without.Outliers <- Top.6.fish.data %>% 
+  filter(TotalWeightKG < 125)
+
 # Plotting data
 ggplot(data = Top.6.fish.data) +
   geom_point(aes(x = DragID2,
@@ -133,12 +156,41 @@ ggplot(data = Top.6.fish.data) +
       y = TotalWeightKG,
       color = LatinNames), 
     size = 3) +
+  scale_x_continuous(breaks = seq(from = 1, to = 48)) +
   theme_bw() +
-  theme(legend.position = "bottom",
-    legend.title = element_blank()) +
-  guides(color = guide_legend(title = "Latin Names")) +
+  theme(axis.text.x = element_text(angle = 90,
+    vjust = 0.5,
+    hjust=1),
+    text = element_text(size = 10),
+    legend.title = element_blank(),
+    legend.position = "bottom") +
   labs(x = "Bottom trawl fishing tows",
-    y = "Weight (kgs)")
+    y = "Weight (kgs)") +
+  ## the code below are used to add the max and min values to plot
+  geom_text(data = Outliers,
+    aes(x = DragID2,
+      y = TotalWeightKG,
+      label = round(TotalWeightKG,3),
+      color = LatinNames),
+    hjust = -0.5,
+    size = 3) +
+  geom_text(data = Without.Outliers,
+    aes(x = DragID2,
+      y = TotalWeightKG,
+      label = ifelse(TotalWeightKG == max(TotalWeightKG),
+        paste0("New max = ",round(TotalWeightKG, 3)), "")), 
+    hjust = -0.5,
+    size = 3,
+    color = "red") + 
+  geom_text(aes(x = DragID2,
+    y = TotalWeightKG,
+    label = ifelse(TotalWeightKG == min(TotalWeightKG),
+      paste0("Min = ", round(TotalWeightKG, 3)), "")),
+    vjust = 1.5,
+    size = 3,
+    color = "red") + 
+  guides(colour = guide_legend(override.aes = aes(label = "")))
+
 
 ### CODE COMMENTS ###
 #[1]. The "Top.6.fish.data" data is subsetted to remove the outlier observations. The new object 
@@ -151,7 +203,7 @@ ggplot(data = Top.6.fish.data) +
 #[2.3]. The name of the legend was specified using guides(). 
 ```
 
-From Figure 3.2 we see that there were three abnormally high data points. These were for discarded fish species *Stellifer microps*(pink), *Stellifer rastrifer*(green) and *Trichiurus lepturus*(blue). As mentioned before these points are strangely high and therefore are perceived to be incorrectly entered and thus will be omitted from the analysis. 
+From Figure 3.2 we see that there were three abnormally high data points. These were for discarded fish species *Trichiurus lepturus*(219.586 kgs), *Stellifer rastrifer*(163.973 kgs) and *Stellifer microps*(132.773 kgs). As mentioned before these points are strangely high and therefore are perceived to be incorrectly entered and thus will be omitted from the analysis. From the Figure we also see that the minimum weight was 0.018 kgs and the *new* maximum will be 107.599 kgs. 
 
 ### Assessment of fish species weights across time of day
 
@@ -293,20 +345,42 @@ To answer this research question we will now look at the discarded fish species 
 
 ```{r, fig.align = "center", fig.cap = "Scatter plot of discarded fish species weights across bottom trawl fishing tows. A total of 48 bottom trawl fishing tows were made. Most of the weight observations are below 125 kgs"}
 
+# Manually calculating data minimum to deal with problem of 
+# multiple minimum values
+min.wt <- min(round(Discard.data$TotalWeightKG, 3))
+
 # Plotting data
 ggplot(data = Discard.data,
   mapping = aes(x = DragID2,
     y = TotalWeightKG)) +
   geom_point(alpha = 0.5) +
+  scale_x_continuous(breaks = seq(from = 1, to = 48)) +
   theme_bw() +
+  theme(axis.text.x = element_text(angle = 90,
+    vjust = 0.5,
+    hjust=1),
+    text = element_text(size = 10),
+    legend.title = element_blank(),
+    legend.position = "bottom") +
   labs(x = "Bottom trawl fishing tows",
-    y = "Weight (kgs)")
+    y = "Weight (kgs)") +
+  ## the code below are used to add the max and min values to plot
+  geom_text(aes(label = ifelse(TotalWeightKG == max(TotalWeightKG),
+    paste0("Max = ",round(TotalWeightKG, 3)), "")), 
+    hjust = -0.5,
+    size = 3,
+    color = "red") + 
+  geom_text(aes(x = 4, y = -7,
+    label = paste0("Min = ", min.wt)),
+    size = 3,
+    color = "red") +
+  guides(colour = guide_legend(override.aes = aes(label = "")))
 
 ### CODE COMMENTS ###
 #[1]. Please see the code comments made at Figure 3.1. 
 ```
 
-Prior to any analysis it is important to inspect the data visually. From the scatter plot (Figure 3.5), we see that for the 48 bottom trawl fishing tows conducted, the weights ranged  between 0.0005 kgs to 219.586 kgs. Despite this range most of the points were below 125 kgs. This means that a few data points were *abnormally high*. These points are highlighted below and will subsequently be removed from the analysis, as they were probably mistakes. Again, this decision was guided by my knowledge about the data.   
+Prior to any analysis it is important to inspect the data visually. From the scatter plot (Figure 3.5), we see that for the 48 bottom trawl fishing tows conducted, the weights ranged  between 0.005 kgs to 219.586 kgs. Despite this range most of the points were below 125 kgs. This means that a few data points were *abnormally high*. These points are highlighted below and will subsequently be removed from the analysis, as they were probably mistakes. Again, this decision was guided by my knowledge about the data.   
 
 **Visualizing outliers** 
 
@@ -314,6 +388,14 @@ Prior to any analysis it is important to inspect the data visually. From the sca
 # Subsetting data with outliers
 Outliers.2 <- Discard.data %>% 
   filter(TotalWeightKG > 125) 
+
+# Subsetting data without outliers
+Without.Outliers.2 <- Discard.data %>% 
+  filter(TotalWeightKG < 125)
+
+# Manually calculating data minimum to deal with problem of 
+# multiple minimum values
+min.wt <- min(round(Discard.data$TotalWeightKG, 3))
 
 # Plotting data
 ggplot(data = Discard.data) +
@@ -325,18 +407,43 @@ ggplot(data = Discard.data) +
       y = TotalWeightKG,
       color = LatinNames), 
     size = 3) +
+  scale_x_continuous(breaks = seq(from = 1, to = 48)) +
   theme_bw() +
-  theme(legend.position = "bottom",
-    legend.title = element_blank()) +
-  guides(color = guide_legend(title = "Latin Names", nrow = 2)) +
+  theme(axis.text.x = element_text(angle = 90,
+    vjust = 0.5,
+    hjust=1),
+    text = element_text(size = 10),
+    legend.title = element_blank(),
+    legend.position = "bottom") +
   labs(x = "Bottom trawl fishing tows",
-    y = "Weight (kgs)")
+    y = "Weight (kgs)") +
+  ## the code below are used to add the max and min values to plot
+  geom_text(data = Outliers.2,
+    aes(x = DragID2,
+      y = TotalWeightKG,
+      label = round(TotalWeightKG,3),
+      color = LatinNames),
+    hjust = -0.5,
+    size = 3) +
+  geom_text(data = Without.Outliers.2,
+    aes(x = DragID2,
+      y = TotalWeightKG,
+      label = ifelse(TotalWeightKG == max(TotalWeightKG),
+        paste0("New max = ", round(TotalWeightKG, 3)), "")), 
+    hjust = -0.5,
+    size = 3,
+    color = "red") + 
+  geom_text(aes(x = 4, y = -7,
+    label = paste0("Min = ", min.wt)),
+    size = 3,
+    color = "red") +
+  guides(colour = guide_legend(override.aes = aes(label = ""), nrow = 2))
 
 ### CODE COMMENTS ###
 #[1]. Please see the code comments made at Figure 3.2.  
 ```
 
-From Figure 3.6 we see that the they were five abnormally high data points. These were for discarded fish species *Dasyatis geijskesi*(peach), *Stellifer rastrifer*(bright green), *Trichiurus lepturus*(purple), *Stellifer microps*(dull green) and *Symphurus plagusia*(blue). As mentioned before these points are strangely high and therefore are perceived to be incorrectly entered and thus will be omitted from the analysis. 
+From Figure 3.6 we see that the they were five abnormally high data points. These were for discarded fish species *Trichiurus lepturus*(219.586 kgs), *Symphurus plagusia*(178.964 kgs), *Stellifer rastrifer*(163.973 kgs), *Dasyatis geijskesi*(161.077 kgs) and *Stellifer microps*(132.773). As mentioned before these points are strangely high and therefore are perceived to be incorrectly entered and thus will be omitted from the analysis. 
 
 ### Discard weight distribution for all fish species, across time of day and fishing depths.
 
