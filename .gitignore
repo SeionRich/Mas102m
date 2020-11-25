@@ -7,3 +7,4 @@ _bookdown_files
 rsconnect
 observer_weights.xlsx
 observer_weights.csv
+*.csv
