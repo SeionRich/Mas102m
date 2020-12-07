@@ -1,10 +1,10 @@
 --- 
 title: "Evaluating Discards using Observer Data Guyana`s Shrimp Fishery"
-author: "Seion Richardson"
+author: "Seion Richardson (sar21@hi.is)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib, packages.bib, library.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
@@ -37,7 +37,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ## Introduction 
 
-The data used in this project is on discarded fish species (Appendix 4.1) from the Atlantic seabob(Appendix 4.3) fishery in Guyana, South America (Figure 1). The data was collected at-sea by fishery observers (Figure 2) onboard seven Atlantic seabob shrimp bottom trawl vessels (Appendix 4.2) between 2019 to 2020 (see chapter 1.3 for data variables). The data was collected within the seabob trawling zone i.e. 15 to 33 metres of water depth (Figure 1). It includes sampled bottom trawl fishing tow data from eight distinct fishing trips (one vessel was used twice) with an average of six sampled hauls per trip (three day, three night) and at different fishing depths (shallow, deep). Time of day are split into day (6:00HRS to 17:59HRS) and night (18:00HRS to 5:59HRS). Fishing depths are split into deep (> 16.46 metres) and shallow (<= 16.46 metres) of water depths. Based on interactions with fisherfolks in Guyana, discarding of fish species from Guyana`s main shrimp fishery is said to be excessive. Therefore this issue will be closely examined in this project, with specific emphasis on species weights and lengths; across varying time of day and fishing depths. 
+The data used in this project is on discarded fish species [(Appendix 5.2)][Discarded fish species] from the Atlantic seabob [(Appendix 5.3)][Atlantic seabob shrimp] fishery in Guyana, South America (Figure \@ref(fig:fig01)). The data was collected at-sea by fishery observers (Figure \@ref(fig:fig02)) onboard seven Atlantic seabob shrimp bottom trawl vessels [(Appendix 5.1)][Bottom trawl fishing vessel] between 2019 to 2020 (see chapter 1.3 for data variables). The data was collected within the seabob trawling zone i.e. 15 to 33 metres of water depth (Figure \@ref(fig:fig01)). It includes sampled bottom trawl fishing tow data from eight distinct fishing trips (one vessel was used twice) with an average of six sampled hauls per trip (three day, three night) and at different fishing depths (shallow, deep). Time of day are split into day (6:00HRS to 17:59HRS) and night (18:00HRS to 5:59HRS). Fishing depths are split into deep (> 16.46 metres) and shallow (<= 16.46 metres) of water depths. Based on interactions with fisherfolks in Guyana, discarding of fish species from Guyana`s main shrimp fishery is said to be excessive. Therefore this issue will be closely examined in this project, with specific emphasis on species weights and lengths; across varying time of day and fishing depths. 
 
 All functions and function arguments in this project are followed directly by parenthesis i.e. (). So for example: filter() means **filter() function** and sum() means **sum() function**. Therefore the word "function" will not be used but is implied. To not be repetitive and to make the codes more readable: code comments will only be made the first time that the code is used. Code comments are placed after each object produced from a code chunk. Two examples of these objects are tables or figures.
 
@@ -45,7 +45,7 @@ All functions and function arguments in this project are followed directly by pa
 
 <center>
 
-![Figure 1 Map of Guyana`s 200 nautical miles Exclusive Economic Zone (EEZ). The Yellow boundary lines represents the different maritime boundary zones. The Atlantic seabob fishing zone (i.e. 15 to 33 meter lines) is represented by the area shaded in red (Richardson, 2020).](C:\Users\UNUFTP\Documents\MyGit\Mas102m\GuyanaEEZ.png){width=65%}
+![(#fig:fig01) Map of Guyana`s 200 nautical miles Exclusive Economic Zone (EEZ). The Yellow boundary lines represents the different maritime boundary zones. The Atlantic seabob fishing zone (i.e. 15 to 33 meter lines) is represented by the area shaded in red (Richardson, 2020).](C:\Users\UNUFTP\Documents\MyGit\Mas102m\GuyanaEEZ.png){width=65%}
 
 </center>
 
@@ -53,25 +53,25 @@ All functions and function arguments in this project are followed directly by pa
 
 <center>
 
-![Figure 2 Data collection sampling protocol used to collect the data for this project](C:\Users\UNUFTP\Documents\MyGit\Mas102m\SamplingProtocol2.png){width=75%}
+![(#fig:fig02) Data collection sampling protocol used to collect the data for this project](C:\Users\UNUFTP\Documents\MyGit\Mas102m\SamplingProtocol2.png){width=75%}
 
 </center>
-
-
 
 ## Data manipulation
 
 **R packages used in this project**
 
 ```{r Packages, message=FALSE, warning=FALSE}
-library(tidyverse) #[1]. Summarize data and make plots
-library(skimr) #[2]. Summarizes data with descriptive statistics
-library(flextable) #[3]. Creates neat tables 
-library(kableExtra) #[4]. Also creates tables 
-library(bookdown) #[5]. Use to build this html book
-library(ggrepel)
+library(tidyverse) #[1]. Summarize data 
+library(kableExtra) #[2]. Also creates tables 
+library(bookdown) #[3]. Build this html book
 ```
 
+**The sources for the packages used in this project are as follows:**\n
+
+[@R-bookdown]; [@R-base]; [@R-bookdown]; [@R-dplyr]; [@R-forcats]; [@R-ggplot2]; [@R-kableExtra]; [@R-knitr]; [@R-purrr]; [@R-readr]; [@R-rmarkdown]
+[@R-stringr]; [@R-tibble]; [@R-tidyr]; [@R-tidyverse]
+[@bookdown2016]; [@ggplot22016]; [@knitr2015]; [@knitr2014]; [@rmarkdown2018]; [@rmarkdown2020]; [@tidyverse2019].
 
 **Importing data**
 
@@ -142,17 +142,20 @@ The variables within the data are coded. A total of 32 variables were recorded i
 
 **Printing the first 6 rows of the data**
 
-```{r}
-HeadData <- head(ObserverData) 
+From (Table \@ref(tab:tab01)) we can get a quick view of the first few rows of the data and the old variable names before they are changed. 
 
-HeadData %>% 
-  kbl(caption = "The first six rows of data") %>%
+```{r tab01}
+Table.1.1 <- head(ObserverData) 
+
+Table.1.1 %>% 
+  kbl(caption = "The first six rows of data",
+    align = "l") %>%
   kable_classic() %>%
   row_spec(0, bold = TRUE) %>%
   kable_styling(fixed_thead = T,
     bootstrap_options = c("striped",
       "condensed")) %>% 
-  scroll_box(width = "770px", height = "350px")
+  scroll_box(width = "770px", height = "550px")
 
 ### CODE COMMENTS ###
 #[1]. A peek at first 6 rows in data using head().
@@ -230,10 +233,11 @@ The **ObserverData** data now comprises 35 variables and 1217 row observations.
 
 This research will look into discarded fish species *weights* and *lengths*. These variables will be measured across *time of day* and *fishing depths*. 
 
-### Count of species sampled across fishing trips and time of day
+### Count of species sampled across fishing trips and time of day.
 
+See (Table \@ref(tab:tab02)) below.
 
-```{r}
+```{r tab02}
 DiscardData <- ObserverData %>%
   filter(CatchCategory == "Discarded catch")
 
@@ -277,9 +281,11 @@ Table.1.2 %>%
 
 Here we see that data is spread across eight fishing trips. For each of those trip sampling is done across time of day (day, night) i.e. 8 respectively. The number of samples collected ranged from 54 (Trip 8 - Day) to 89 (Trip 6 - Day) with the mean number sampled being 67. 
 
-### Count of species sampled across fishing trips and fishing depths
+### Count of species sampled across fishing trips and fishing depths.
 
-```{r}
+See (Table \@ref(tab:tab03)) below.
+
+```{r tab03}
 Table.1.3 <- DiscardData %>% 
   group_by(TripID, 
            FishingDepth2) %>% 
@@ -313,19 +319,19 @@ Here we see that data is across eight fishing trips. The samples were randomly c
 
 To determine the extent of discarding within Guyana`s Atlantic seabob shrimp fishery. This will be done using observer data to evaluate the weights and lengths of the discarded species across dissimilar time of day (day, night) and fishing depths (deep, shallow). More precisely this study will aim to answer the following questions:  
 
-### Research Questions
+### Research Questions {#rq}
 
-**First Submission**
+#### First Submission 
 
 1. What are the weights by the different catch categories and what proportions of the catch are discarded? 
 2. What are the species discarded, their relative sampling proportions and weights?
 
-**Second Submission**
+#### Second Submission
 
 3. What are the weight distributions of the most common (by weight) discarded fish species across time of day and fishing depths? 
 4. Are the mean weights for the discarded fish species (ALL) equal across time of day and fishing depths?
 
-**Third Submission (Joining Weights and Lengths data)**
+#### Third Submission (Joining Weights and Lengths data)
 
 5. What were the length distributions of the most common (by lengths) discarded fish species across time of day and fishing depths?
 6. Are the mean lengths for the discarded fish species (ALL) equal across time of day and fishing depths?
@@ -339,4 +345,13 @@ To determine the extent of discarding within Guyana`s Atlantic seabob shrimp fis
 * $H_O$ **(Null hypothesis)** – Mean species lengths are **equal** across time of day and fishing depths.   
 
 * $H_A$ **(Alternate hypothesis)** – Mean species lengths are **not equal** across time of day and fishing depths.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'kableExtra', 'tidyverse'
+), 'packages.bib')
+```
+
+
 
