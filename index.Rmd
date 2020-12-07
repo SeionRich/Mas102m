@@ -1,6 +1,6 @@
 --- 
 title: "Evaluating Discards using Observer Data Guyana`s Shrimp Fishery"
-author: "Seion Richardson (sar21@hi.is)"
+author: "Seion Richardson | sar21@hi.is"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
