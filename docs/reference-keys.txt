@@ -90,8 +90,8 @@ time-of-day-3
 fishing-depths-3
 analysis-summary-1
 final-remarks
-bibliography
 appendices
 id.51
 id.52
 atlantic-seabob-shrimp
+bibliography
