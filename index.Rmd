@@ -65,13 +65,15 @@ All functions and function arguments in this project are followed directly by pa
 library(tidyverse) #[1]. Summarize data 
 library(kableExtra) #[2]. Also creates tables 
 library(bookdown) #[3]. Build this html book
+library(glue) #[4]. Glue and italicize column
+library(ggtext) #[5]. Modify plot texts
 ```
 
 **The sources for the packages used in this project are as follows:**\n
 
 [@R-bookdown]; [@R-base]; [@R-bookdown]; [@R-dplyr]; [@R-forcats]; [@R-ggplot2]; [@R-kableExtra]; [@R-knitr]; [@R-purrr]; [@R-readr]; [@R-rmarkdown]
 [@R-stringr]; [@R-tibble]; [@R-tidyr]; [@R-tidyverse]
-[@bookdown2016]; [@ggplot22016]; [@knitr2015]; [@knitr2014]; [@rmarkdown2018]; [@rmarkdown2020]; [@tidyverse2019].
+[@bookdown2016]; [@ggplot22016]; [@knitr2015]; [@knitr2014]; [@rmarkdown2018]; [@rmarkdown2020]; [@tidyverse2019]; [@R-ggtext]; [@R-glue].
 
 **Importing data**
 
@@ -349,7 +351,7 @@ To determine the extent of discarding within Guyana`s Atlantic seabob shrimp fis
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'kableExtra', 'tidyverse'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'kableExtra', 'tidyverse', 'glue', 'ggtext'
 ), 'packages.bib')
 ```
 

@@ -8,7 +8,7 @@
 
 ### Catch categories
 
-```{r fig21, fig.cap = "Barplots showing a breakdown of weights by species category across fishing trips"}
+```{r fig21, fig.width = 8, fig.cap = "Barplots showing a breakdown of weights by species category across fishing trips"}
 
 ggplot(data = ObserverData,
   mapping = aes(x = as.factor(TripID),
@@ -48,7 +48,7 @@ In total 18,608 kgs of fish were landed. Of this amount, bony fish accounted for
 
 *This will be looked at across fishing trips*
 
-```{r fig22, fig.width = 9, fig.align = "center", fig.cap = "Barplot showing a breakdown of weights (proportions) by catch category for the different fishing trips. The numbers at the top of each pair of bars i.e. in the grey area represents the Fishing Trip number ID"}
+```{r fig22, fig.width = 8, fig.align = "center", fig.cap = "Barplot showing a breakdown of weights (proportions) by catch category for the different fishing trips. The numbers at the top of each pair of bars i.e. in the grey area represents the Fishing Trip number ID"}
 
 FilteredCatch <- ObserverData %>% 
   filter(CatchCategory == "Discarded catch" |
@@ -66,7 +66,7 @@ ggplot(data = SumFilteredCatch,
   mapping = aes(x = SpeciesCategory, 
     y = Percentage, 
     fill = SpeciesCategory)) +
-  geom_col(position = "dodge") +
+  geom_col(position = "dodge", width = 0.9) +
   theme_bw() +
   theme(panel.background = element_rect(fill = "white",
     colour = "grey50"), 
@@ -79,7 +79,7 @@ ggplot(data = SumFilteredCatch,
     name = " ", 
     labels = c("Discarded catch",
       "Target catch")) +
-  facet_grid(~TripID)
+  facet_grid(cols = vars(TripID))
 
 ### CODE COMMENTS ###
 #[1]. Filtering the observer data by catch category.
@@ -117,17 +117,17 @@ The data comprised of four different catch categories: bony fish, shell fish, fl
 ```{r tab21}
 Table.2.1 <- DiscardData %>% 
   group_by(OrderTax, 
-           FamilyTax, 
-           LatinNames) %>%
+    FamilyTax, 
+    LatinNames) %>%
   dplyr::summarise(n = n(), 
-                   prop = round(n/48,2),
-                   .groups = 'drop') %>% 
+    prop = round(n/48,2),
+    .groups = 'drop') %>% 
   arrange(OrderTax)
 
 Table.2.1$OrderTax = ifelse(duplicated(Table.2.1$OrderTax), "",
-                         Table.2.1$OrderTax)
+  Table.2.1$OrderTax)
 Table.2.1$FamilyTax = ifelse(duplicated(Table.2.1$FamilyTax), "",
-                          Table.2.1$FamilyTax)
+  Table.2.1$FamilyTax)
 
 Table.2.1 %>% 
   kbl(caption = "Fish taxa identified from the 48 bottom trawl fishing tows sampled off the coast of Guyana. Proportions = species presence in proportion within the total samples.",
@@ -162,26 +162,34 @@ In total, 61 fish taxa (i.e. excluding *Scyphozoa sp.* and 	*Un id*) were identi
 
 ### Relative weights of discarded fish species
 
-```{r fig23, fig.height = 10, fig.cap = "Boxplot showing a breakdown of total weight distribution by species. Ranking is done from the highest (top of plot) to the lowest (bottom of plot). Six values above 100 kgs were removed to allow for better visulisation of trends in the species weight distributions."}
+```{r fig23, fig.height = 10, fig.width = 8, fig.cap = "Boxplot showing a breakdown of total weight distribution by species. Ranking is done from the highest (top of plot) to the lowest (bottom of plot). Six values above 100 kgs were removed to allow for better visulisation of trends in the species weight distributions."}
 
 SpeciesWeights <- DiscardData %>% 
   group_by(LatinNames) %>%
   filter(n() >= 5) %>% 
   filter(TotalWeightKG < 125)
 
-ggplot(data = SpeciesWeights,
-  mapping = aes(x = reorder(LatinNames,
-    TotalWeightKG,
-    FUN = median),
+SpeciesWeights %>%  
+  separate(LatinNames,
+    c("Genus","Species"),
+    " ") %>% 
+  mutate(Latin.italics = glue("*{Genus} {Species}*"),
+    Latin.italics = fct_reorder(Latin.italics,
+      TotalWeightKG,
+      .fun = median)) %>% 
+  ggplot(aes(x = Latin.italics,
     y = TotalWeightKG)) +
   geom_boxplot() +
   coord_flip()  +
   labs(x = "Latin Names",
     y ="Weight (kgs)") +
-  theme(panel.background = element_rect(colour = "White"),
+  theme(panel.background = element_rect(fill = "white",
+    color = "pink"),
+    panel.grid.major = element_line(colour = "grey",
+      linetype = "dotted"),
+    panel.grid.minor = element_line(colour = "grey"),
     legend.position = "none",
-    axis.text.x = element_text(face = "italic")) +
-  theme_bw()
+    axis.text.y = element_markdown())
 
 ### CODE COMMENTS ###
 #[1]. First the main data "DiscardData" is filtered to remove species that occurred less than 
@@ -189,6 +197,8 @@ ggplot(data = SpeciesWeights,
 #     This is done to get meaning summary statistics e.g. median and range. 
 #     The new data is named "SpeciesWeights".   
 # [2]. The first argument to ggplot() is the data ("SpeciesWeights"). 
+#     But first separate() was used to split the LatinNames variables by Genus and Species. After this 
+#     the glue() function was used to italicize the names for plotting.
 #     Then the mapping = aes() where the X variable ("LatinNames") and the Y variable "TotalWeightKG"
 #     were supplied. reorder() is used to sort the species from the highest(top of plot) 
 #     to the lowest (bottom of plot) median values.   
@@ -197,6 +207,7 @@ ggplot(data = SpeciesWeights,
 #     the data. This is due to the excess species. 
 #[5]. X and Y axis labels were added using labs().
 #[6]. The plot is formatted using theme() and the legend removed using the legend.position argument.
+
 ```
 
 The data presented in this paragraph and the figure above is filtered to remove those species which occurred less than 5 times in the sample (Figure \@ref(fig:fig23)). The top five species by median weight landed were: *Polymixia lowei* (18 kgs), followed by *Stellifer rastrifer*, *Stellifer microps*, *Macrodon ancylodon* and *Larimus breviceps* all with 14 kgs, respectively.  The weight range for these species are as follows: *Polymixia lowei* (7 to 21 kgs), *Stellifer rastrifer* (1 to 164 kgs), *Stellifer microps* (1 to 133 kgs), *Macrodon ancylodon* (1 to 74 kgs) and *Larimus breviceps* (1 to 61 kgs). The five species with the lowest median weights were: *Mustelus higmani* (1 kg), followed by *Sphoeroides testudineus*, *Persephona lichtensteinii*, *Chaetodipterus faber* and *Hepatus gronovii* all with 2 kgs.  The weight range for these species are as follows: *Mustelus higmani* (0.2 to 33 kgs), followed by *Sphoeroides testudineus* (0.1 to 26 kgs), *Persephona lichtensteinii* (0.005 to 14 kgs), *Chaetodipterus faber* (0.01 to 21 kgs) and *Hepatus gronovii* (0.3 to 14 kgs) (Figure \@ref(fig:fig23)).
